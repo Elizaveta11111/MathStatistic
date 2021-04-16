@@ -7,14 +7,14 @@ import numpy as np
 sns.set_style('whitegrid')
 colors = sns.color_palette('magma', 10)
 sizes = [10, 50, 1000]
-
+bins = [10, 15, 20]
 
 def plot(dist, name):
     plt.figure(figsize=(15, 4))
     for i in range(3):
         plt.subplot(1, 3, i + 1)
         data = dist.rvs(size=sizes[i])
-        sns.histplot(data, bins=10, stat="density", color=colors[5])
+        sns.histplot(data, bins= bins[i], stat="density", color=colors[5])
         if name == 'P(k, 10)':
             x = np.linspace(0, max(data), max(data) + 1)
             y = dist.pmf(x)
